@@ -47,7 +47,9 @@
 - Fine-tuning of a pretrained T5 model.
 - Text preprocessing and tokenization pipeline.
 
+## 🖥️ Application Preview
 
-  
+- ![Web Application View](https://github.com/Puneetarora1/AI-Dialogue-Summarizer-using-Fine-Tuning-Transformer)
+
 ---
 

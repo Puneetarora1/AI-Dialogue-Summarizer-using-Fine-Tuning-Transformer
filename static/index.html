@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>DialogueAI | Text Summarizer</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <a class="brand" href="/" aria-label="DialogueAI home">
+            <span class="brand-icon">✦</span>
+            <span>Dialogue<span class="brand-highlight">AI</span></span>
+        </a>
+
+        <span class="model-tag">T5 Transformer · Fine-tuned</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="eyebrow">✧ AI-POWERED SUMMARIZATION</span>
+
+            <h1>Less text. <span>More clarity.</span></h1>
+
+            <p>
+                Transform lengthy conversations into concise, meaningful
+                summaries using a fine-tuned T5 Transformer model.
+            </p>
+        </section>
+
+        <section class="workspace" aria-label="Dialogue summarizer">
+
+            <!-- Input panel -->
+            <article class="panel">
+                <header class="panel-header">
+                    <div>
+                        <h2>Your Dialogue</h2>
+                        <p>Enter the conversation you want to summarize.</p>
+                    </div>
+                    <span class="status">● Ready</span>
+                </header>
+
+                <div class="panel-body">
+                    <label for="dialogue">Input text</label>
+
+                    <textarea
+                        id="dialogue"
+                        maxlength="30000"
+                        placeholder="Person A: How was your meeting today?
+
+Person B: It went well. We discussed the project timeline and assigned tasks to the team.
+
+Person A: When is the next review meeting?
+
+Person B: Next Friday at 10 AM."
+                        aria-describedby="wordCount inputError"
+                    ></textarea>
+
+                    <div class="input-footer">
+                        <span id="wordCount" aria-live="polite">
+                            0 words · 0 characters
+                        </span>
+
+                        <button class="text-button" id="clearButton" type="button">
+                            Clear text
+                        </button>
+                    </div>
+
+                    <button class="primary-button" id="summarizeButton" type="button">
+                        <span aria-hidden="true">✦</span>
+                        <span id="buttonText">Generate Summary</span>
+                    </button>
+
+                    <div id="inputError"
+                         class="message error-message"
+                         role="alert"
+                         hidden></div>
+                </div>
+            </article>
+
+            <!-- Summary output panel -->
+            <article class="panel result-panel">
+                <header class="panel-header">
+                    <div>
+                        <h2>Generated Summary</h2>
+                        <p>Your AI-generated result appears here.</p>
+                    </div>
+                    <span class="model-tag">AI Result</span>
+                </header>
+
+                <div class="panel-body result-body">
+
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon" aria-hidden="true">✧</div>
+                        <h3>Your summary awaits</h3>
+                        <p>
+                            Enter a dialogue and click Generate Summary
+                            to see your result here.
+                        </p>
+                    </div>
+
+                    <div class="loading-state" id="loadingState" hidden>
+                        <div class="spinner" aria-hidden="true"></div>
+                        <h3>Summarizing your dialogue<span class="loading-dots"></span></h3>
+                        <p>Please wait while the T5 model generates your summary.</p>
+                    </div>
+
+                    <div id="summaryOutput"
+                         class="result-content"
+                         role="region"
+                         aria-label="Generated summary"
+                         aria-live="polite"
+                         tabindex="-1"
+                         hidden></div>
+
+                    <div class="result-footer" id="resultFooter" hidden>
+                        <span id="summaryStats">0 words</span>
+
+                        <button class="copy-button" id="copyButton" type="button">
+                            ▢ Copy summary
+                        </button>
+                    </div>
+
+                    <div id="apiError"
+                         class="message error-message"
+                         role="alert"
+                         hidden></div>
+
+                    <div id="successMessage"
+                         class="message success-message"
+                         role="status"
+                         hidden></div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Feature cards -->
+        <section class="features" aria-label="Application features">
+            <article class="feature">
+                <span class="feature-icon">⚡</span>
+                <div>
+                    <h3>AI-powered results</h3>
+                    <p>Generate concise summaries with your fine-tuned T5 model.</p>
+                </div>
+            </article>
+
+            <article class="feature">
+                <span class="feature-icon">◎</span>
+                <div>
+                    <h3>Simple workflow</h3>
+                    <p>Enter text, generate a summary, and copy the result.</p>
+                </div>
+            </article>
+
+            <article class="feature">
+                <span class="feature-icon">◇</span>
+                <div>
+                    <h3>Responsive design</h3>
+                    <p>Enjoy a clean interface on desktop, tablet, and mobile.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Built with FastAPI, PyTorch and a fine-tuned T5 Transformer.
+    </footer>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF7ED;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #FB923C;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: -20px;
+            margin-bottom: 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        textarea {
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #FB923C;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #F97316;
+        }
+
+        #summary-output {
+            margin-top: 20px;
+            background: #FFEDD5;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #summary-heading {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text Summarizer</h1>
+        <h3>using HuggingFace Transformer</h3>
+        <p>Write or Paste your content below for quick summarization.</p>
+
+        <form id="summarization-form">
+            <textarea id="dialogue-input" placeholder="Enter your content here..." required></textarea>
+            <button type="submit">Summarize</button>
+        </form>
+
+        <div id="summary-output">
+            <h3 id="summary-heading">Content Summary</h3>
+            <p id="summary-text"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("summarization-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+        
+            const dialogueInput = document.getElementById("dialogue-input");
+            const summaryText = document.getElementById("summary-text");
+            const submitButton = e.target.querySelector("button");
+        
+            const dialogue = dialogueInput.value.trim();
+            if (!dialogue) return;
+        
+            summaryText.innerText = "Processing...";
+            submitButton.disabled = true;
+        
+            try {
+                const response = await fetch("/summarize/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ dialogue }),
+                });
+        
+                if (!response.ok) {
+                    throw new Error(`Server error: ${response.status}`);
+                }
+        
+                const data = await response.json();
+                summaryText.innerText = data.summary || "No summary returned.";
+            } catch (err) {
+                
+                summaryText.innerText = `Error: ${err.message}`;
+            } finally {
+                
+                submitButton.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html> -->

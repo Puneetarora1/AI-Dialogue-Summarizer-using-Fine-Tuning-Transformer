@@ -49,7 +49,7 @@
 
 ## 🖥️ Application Preview
 
-- ![Web Application View](https://github.com/Puneetarora1/AI-Dialogue-Summarizer-using-Fine-Tuning-Transformer)
+- ![Web Application View](https://github.com/Puneetarora1/AI-Dialogue-Summarizer-using-Fine-Tuning-Transformer/blob/main/Snapshot.png)
 
 ---
 
